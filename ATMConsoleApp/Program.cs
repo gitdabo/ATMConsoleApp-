@@ -1,6 +1,7 @@
 ﻿
 
 
+
 internal class Program
 {
     
@@ -51,6 +52,9 @@ internal class Program
             else if (userInput == "3")
             {
                 ChangePin();
+
+                //break;
+               
             }
 
 
@@ -67,11 +71,16 @@ internal class Program
             }
 
 
+            
 
+           
+                Console.WriteLine();
 
-            Console.WriteLine(  );
-            Console.Write(  "Do you wish to exit ? (Y/N) : ");
-            userDone = Console.ReadLine();
+                Console.Write("Do you wish to exit ? (Y/N) : ");
+                userDone = Console.ReadLine();
+           
+
+           
 
              
 
@@ -95,7 +104,44 @@ internal class Program
 
     private static void ChangePin()
     {
+        Console.Clear( );
+
+        DisplayMessageLine("Enter current Pin : ");
+        string currentPin = Console.ReadLine();
+
+        Console.Clear( );   
        
+        DisplayMessageLine("Please enter new Pin : ");
+        string newPin = Console.ReadLine();
+
+        DisplayMessageLine("Confirm new Pin : ");
+        string pinConfirm = Console.ReadLine();
+
+        Console.Clear();
+
+        if (newPin == pinConfirm)
+        {
+            DisplayMessageLine("Pin change was succesful ");
+ 
+        }
+
+        
+
+        else if (newPin != pinConfirm)
+        {
+            DisplayMessageLine("Pin Mismatch! Exit & try again. ");
+            Console.WriteLine(  );
+        }
+
+        
+
+        Console.WriteLine(  );
+       
+    }
+
+    private static void DisplayMessageLine(string v)
+    {
+        Console.Write( v );
     }
 
     private static void Withdraw( double defaultBalance )
